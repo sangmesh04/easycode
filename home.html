@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <style>
+        *{
+            margin: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
+        }
+        #load{
+  font-size: 50px;
+  text-align: center;
+  color: #723208;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: rgb(255, 254, 254) url("https://www.bing.com/th/id/OGC.ac09c4a090802997da63d4c1531fbb27?pid=1.7&rurl=http%3a%2f%2fblog.binarynonsense.com%2fimages%2fposts%2fsnippet_loading.gif&ehk=P3Dcv9Nq12G%2bR9k2BuOb68Z9%2bU7j3KOcqK6P25PIguE%3d") no-repeat center;
+        }
+        .container{
+             
+            background-image:url(image3.gif);
+             background-position: center;
+             background-size: cover;
+             position: fixed;
+             width: 110%;
+             height: 100%;
+        }
+        .main{
+            overflow: hidden;
+            width: 380px;
+            height: 530px;
+            background-color: rgb(255, 255, 255);
+            position:sticky;
+            margin: 6% auto;
+            padding: 5px;
+        }
+        .button-box{
+          width: 220px;
+          margin: 35px auto;
+          position: relative;
+          box-shadow: 0 0 10px 0px rgba(179, 178, 238, 0.98) ;
+          border-radius: 30px;
+        }
+        .toggle{
+            cursor: pointer;
+            padding: 10px 30px;
+            position: relative;
+            background: transparent;
+            outline: none;
+            border: 0;
+        }
+        #btn{
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            background: linear-gradient(to right, rgb(0, 183, 255),rgb(68, 71, 233));
+            border-radius: 30px;
+            transition: .5s;
+        }
+        .social{
+            text-align: center;
+            color: rgb(4, 0, 255);
+        
+        }
+        .social svg{
+            padding: 25px;
+            padding-top: 0;
+        }
+        .social svg:hover{
+            opacity: 0.6;
+            cursor: pointer;
+        }
+        .input{
+            top: 180px;
+            position: absolute;
+            width: 280px;
+            transition: .5s;
+        }
+        #input,#pass,#con_pass{
+            color: rgb(7, 4, 29);
+            width: 100%;
+            padding: 10px 0;
+            margin: 5px 0;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 1px solid rgb(4, 0, 255);
+            outline: none;
+            background: transparent;
+        }
+        #submit{
+            color: white;
+            
+            padding: 10px 30px;
+            width: 85%;
+            display: block;
+            cursor: pointer;
+            margin: auto;
+            background: linear-gradient(to right, rgb(2, 22, 65),rgb(0, 92, 128));
+            border: 0;
+            outline: none;
+            border-radius: 30px;
+        }
+        #submit:hover{
+            opacity: 0.8;
+            text-emphasis-color: white;
+        }
+        #check{
+            margin: 30px 10px 30px 0;
+            top: 10px;
+        }
+        span{
+            color: rgb(7, 7, 7);
+            font-size: 12px;
+            bottom: 68px;
+            position: absolute;
+        }
+        #login{
+            left: 50px;
+        }
+        #register{
+            left: 450px;
+        }
+        #condition{
+            font-size: 12px;
+        }
+        .var{
+            padding-left: 5%;
+            line-height: 70px;
+            width: 100%;
+            font-size: 30px;
+            
+            background-color: rgb(7, 4, 29);
+            color: white;
+        }
+        .var a{
+            text-decoration: none;
+            color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            cursor: pointer;
+        }
+        @media  screen and (max-width:400px) {
+            .main{
+                width: 100%;
+                
+            }
+            
+        }
+      
+    </style>
+</head>
+<body onload="loadend()">
+    <div id="load">Loading... Please Wait</div>
+    <div class="container">
+        <div class="var">
+            <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-code-slash" viewBox="0 0 16 16">
+                <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+              </svg> Easy Code</a>
+        </div>
+        <div class="main">
+                <div class="button-box">
+                    <div id="btn"></div>
+                <button type="button" class="toggle" onclick="register()">Login</button>
+                <button type="button" class="toggle" onclick="login()">Register</button>
+                </div>
+        <div class="social">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+              </svg>
+        </div>
+        
+            <form action="index.php" class="input" id="login" method="POST">
+            <input type="text" name="userid" id="input" placeholder="Enter User ID" required><br>
+            <input type="password" name="pass" id="input" placeholder="Enter Password" required><br>
+            <input type="checkbox" name="check" id="check"><span>Remember me</span><br>
+            <input type="submit" value="Login" id="submit" name="submit1">
+            </form>
+            <form action="index.php" class="input" id="register" method="POST">
+                <input type="text" name="userid" id="input" placeholder="Enter User ID" required><br>
+                <input type="email" name="emailid" id="input" placeholder="Enter Email ID" required><br>
+                <input type="password" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Password" required><br>
+                <input type="password" name="pass1" id="con_pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Confirm Password" required>
+                <div id="condition">Password should include atleast 1 lowercase, 1 uppercase, 1 number and have minimum length 8 </div>
+                <input type="checkbox" name="check" id="check" required><span>I agree all terms and conditions</span>
+                <input type="submit" value="Register" id="submit" onclick="return validate()" name="submit">
+                </form>
+        
+        </div>
+    </div>
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+        var myInput = document.getElementById("pass");
+        var conpass = document.getElementById("con_pass");
+
+       function validate(){
+           if (myInput.value == ''){
+               alert("Password can't be empty");
+               return false;
+           }
+           var lowerCaseLetters = /[a-z]/g;
+              if(myInput.value.match(lowerCaseLetters)) {
+                
+              } else {
+                alert('Password should include lower case!');
+                return false;
+            }
+            
+              
+              var upperCaseLetters = /[A-Z]/g;
+              if(myInput.value.match(upperCaseLetters)) {
+                
+              } else {
+               alert('Password should include uppercase!');
+               return false;
+              }
+            
+              
+              var numbers = /[0-9]/g;
+              if(myInput.value.match(numbers)) {
+                
+              } else {
+                alert('Password should include number!');
+                return false;
+              }
+            
+              
+              if(myInput.value.length >= 8) {
+                
+              } else {
+                alert('Password should have minimum 8 character!');
+                return false;
+              }
+              if((myInput.value) == (conpass.value)){
+                  
+              }else{
+                  alert('Both passwords should match!');
+                  return false;
+              }
+       }
+
+
+        function login(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+
+        }
+        function register(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+
+        }
+
+    </script>
+    <script>
+        var preload = document.getElementById("load");
+        function loadend(){
+          preload.style.display = "none";
+        }
+      </script>
+</body>
+</html>
