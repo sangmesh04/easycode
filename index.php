@@ -5,7 +5,7 @@ if(isset($_POST['submit'])){
     $pass = $_POST['pass'];
     
  
-    $dbconnect = mysqli_connect('localhost','290720','123456789','290720');
+    $dbconnect = mysqli_connect('localhost','290720','','290720');
 
     $sql = mysqli_query($dbconnect, "insert into registeration(userid,email,password) values('$name','$email','$pass')");
     
