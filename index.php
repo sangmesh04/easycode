@@ -25,7 +25,7 @@ if(isset($_POST['submit1'])){
 
     $dbconnect = mysqli_connect('localhost','290720','123456789','290720');
 
-    $result = mysqli_query($dbconnect, "SELECT * FROM registeration WHERE userid = '$name' && password ='$pass'");
+    $result = mysqli_query($dbconnect, "SELECT * FROM registeration WHERE userid = '$name' or email = '$name' && password ='$pass'");
     
     
 
